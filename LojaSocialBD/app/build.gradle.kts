@@ -1,9 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    id("com.android.application")
-    id("kotlin-android")
-    id("kotlin-kapt") // Kapt é o processador de anotações para Room
+
 }
 
 android {
@@ -69,15 +67,5 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
-    // Dependência Room para persistência local
-    implementation("androidx.room:room-runtime:2.5.0")
-    kapt("androidx.room:room-compiler:2.5.0") // Para compilar as anotações do Room
-
-    // Room com suporte a Coroutines
-    implementation("androidx.room:room-ktx:2.5.0")
-
-    // Dependências adicionais
-    implementation("androidx.core:core-ktx:1.10.1")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
 
 }
