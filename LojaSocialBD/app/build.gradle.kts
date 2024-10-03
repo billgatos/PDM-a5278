@@ -51,6 +51,7 @@ android {
 }
 
 dependencies {
+    val composeVersion = "1.5.0"
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -67,5 +68,17 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    // Dependência para ViewModel com Jetpack Compose
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.0-alpha03")
+
+    // Jetpack Compose
+    implementation("androidx.compose.ui:ui:$composeVersion")
+    implementation("androidx.compose.material3:material3:1.0.1")
+    implementation("androidx.compose.ui:ui-tooling-preview:$composeVersion")
+    implementation("androidx.activity:activity-compose:1.7.0")
+
+    // Para o gerenciamento de estado e o uso de mutableStateOf
+    implementation("androidx.compose.runtime:runtime:$composeVersion")
 
 }
