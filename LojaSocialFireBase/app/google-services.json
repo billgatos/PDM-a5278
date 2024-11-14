@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1061983970416",
+    "project_id": "lojasocialfb",
+    "storage_bucket": "lojasocialfb.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1061983970416:android:6153d6b151c324cd3200b5",
+        "android_client_info": {
+          "package_name": "com.example.lojasocialfirebase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAL_CZdL5WEt0ySJ5wTRZqcXnwtiZWnVrI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
