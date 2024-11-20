@@ -9,7 +9,9 @@ import java.util.Date
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
+
 
 @Composable
 fun RegisterVisitaScreen(visitaViewModel: VisitaViewModel) {
@@ -18,29 +20,31 @@ fun RegisterVisitaScreen(visitaViewModel: VisitaViewModel) {
     var familiaRef by remember { mutableStateOf("") }
     var voluntarioRef by remember { mutableStateOf("") }
 
-    fun initializeFirebaseCollections(onComplete: (Boolean) -> Unit) {
-        val db = FirebaseFirestore.getInstance()
-        val auth = FirebaseAuth.getInstance()
+    //esquecer a inicialização do FirebaseCollections
+        //    fun initializeFirebaseCollections(onComplete: (Boolean) -> Unit) {
+        //        //val db = FirebaseFirestore.getInstance()
+        //        val db = Firebase.firestore
+        //        val auth = FirebaseAuth.getInstance()
+        //
+        //        // Definindo a coleção de inicialização e o usuário padrão
+        //        //val defaultUserEmail = "robe@gmail.com"
+        //        //val defaultUserPassword = "password123"  // Defina uma senha segura para o usuário padrão
+        //
+        //        // Função para criar uma coleção vazia
+        //        fun createEmptyCollection(collectionName: String) {
+        //            db.collection(collectionName).document("ola").set(emptyMap<String, Any>()).addOnSuccessListener {
+        //                // Remove o documento "dummy" após a criação para deixar a coleção realmente vazia
+        //                db.collection(collectionName).document("ola").delete()
+        //            }
+        //        }
+        //
+        //        // Cria coleções vazias, se necessário
+        //        listOf("tarefas", "pais", "familias", "pessoas", "voluntarios", "agenda", "visitas", "lideres_espirituais").forEach { collectionName ->
+        //            createEmptyCollection(collectionName)
+        //        }
+        //    }
 
-        // Definindo a coleção de inicialização e o usuário padrão
-        val defaultUserEmail = "robe@gmail.com"
-        val defaultUserPassword = "password123"  // Defina uma senha segura para o usuário padrão
-
-        // Função para criar uma coleção vazia
-        fun createEmptyCollection(collectionName: String) {
-            db.collection(collectionName).document("dummy").set(emptyMap<String, Any>()).addOnSuccessListener {
-                // Remove o documento "dummy" após a criação para deixar a coleção realmente vazia
-                db.collection(collectionName).document("dummy").delete()
-            }
-        }
-
-        // Cria coleções vazias, se necessário
-        listOf("tarefas", "pais", "familias", "pessoas", "voluntarios", "agenda", "visitas", "lideres_espirituais").forEach { collectionName ->
-            createEmptyCollection(collectionName)
-        }
-    }
-
-    initializeFirebaseCollections { }
+        //initializeFirebaseCollections { }
 
 
     Column(modifier = Modifier.padding(16.dp)) {
@@ -73,4 +77,6 @@ fun RegisterVisitaScreen(visitaViewModel: VisitaViewModel) {
             Text("Registrar Visita")
         }
     }
+
+
 }
