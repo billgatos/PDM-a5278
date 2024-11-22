@@ -4,45 +4,27 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.lojasocialfirebase.ui.theme.LojaSocialFireBaseTheme
-import com.google.firebase.FirebaseApp
-
-import androidx.activity.compose.setContent
 import com.example.lojasocialfirebase.navigation.AppNavHost
+import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-
-
-//class MainActivity : ComponentActivity() {
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//        setContent {
-//            AppNavHost()
-//            FirebaseApp.initializeApp(this) // Inicializa o Firebase
-//        }
-//    }
-//}
-
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // Inicializa o Firebase antes de qualquer operação
+        FirebaseApp.initializeApp(this)
+
+        // Verifica e inicializa coleções do Firebase
         initializeFirebaseCollections { success ->
             if (success) {
                 setContent {
-                    AppNavHost()
-                    FirebaseApp.initializeApp(this) // Inicializa o Firebase
+                    AppNavHost() // Configura o sistema de navegação após a inicialização
                 }
             } else {
                 Toast.makeText(this, "Falha na inicialização do banco de dados", Toast.LENGTH_LONG).show()
+            }
         }
     }
 }
@@ -52,8 +34,8 @@ fun initializeFirebaseCollections(onComplete: (Boolean) -> Unit) {
     val auth = FirebaseAuth.getInstance()
 
     // Definindo a coleção de inicialização e o usuário padrão
-    val defaultUserEmail = "robe@gmail.com"
-    val defaultUserPassword = "password123"  // Defina uma senha segura para o usuário padrão
+    val defaultUserEmail = "adminnet@gmail.com"
+    val defaultUserPassword = "123456"  // Defina uma senha segura para o usuário padrão
 
     // Função para criar uma coleção vazia
     fun createEmptyCollection(collectionName: String) {
@@ -95,5 +77,4 @@ fun initializeFirebaseCollections(onComplete: (Boolean) -> Unit) {
     }.addOnFailureListener {
         onComplete(false)
     }
-}
 }

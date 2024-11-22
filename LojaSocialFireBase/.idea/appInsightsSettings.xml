@@ -10,9 +10,9 @@
               <option name="connection">
                 <ConnectionSetting>
                   <option name="appId" value="com.example.lojasocialfirebase" />
-                  <option name="mobileSdkAppId" value="1:1061983970416:android:6153d6b151c324cd3200b5" />
-                  <option name="projectId" value="lojasocialfb" />
-                  <option name="projectNumber" value="1061983970416" />
+                  <option name="mobileSdkAppId" value="1:1075709531886:android:2e93582e6a1bb1430f45ff" />
+                  <option name="projectId" value="loja-social-firebase" />
+                  <option name="projectNumber" value="1075709531886" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
